@@ -1,0 +1,37 @@
+.main-button {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	padding: 12px 24px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	min-width: 120px;
+}
+
+.main-button:hover:not(.disabled) {
+	opacity: 0.9;
+}
+
+/* Primary variant */
+.main-button.primary {
+	background-color: #3c477c;
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+.main-button.primary.disabled {
+	background-color: #27272750;
+	cursor: not-allowed;
+}
+
+/* Secondary variant */
+.main-button.secondary {
+	background-color: #3c477c;
+	color: #ffffff;
+	border-radius: 40px;
+}
+
+.main-button.secondary.disabled {
+	background-color: #27272750;
+	cursor: not-allowed;
+}
