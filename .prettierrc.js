@@ -8,4 +8,6 @@ module.exports = {
 	trailingComma: 'all',
 	useTabs: true,
 	tabWidth: 4,
+	jsxBracketSameLine: false,
+	quoteProps: 'preserve',
 };
