@@ -29,7 +29,7 @@
 }
 
 .mobileNav.light > * {
-    color: #272727;
+	color: #272727;
 }
 
 .mobileNav.dark > * {
@@ -63,24 +63,32 @@
 	height: 50px;
 	border-radius: 50%;
 	border: none;
-	background: #ffffff;
+	background: #272727;
 	cursor: pointer;
-	transition: transform 0.5s ease;
-
+	transform-origin: center center;
 	outline: none;
 	-webkit-tap-highlight-color: transparent;
 	user-select: none;
 }
 
-.theme-toggle-button.dark {
-	background: #00000040;
+@keyframes rotate360 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .theme-toggle-button:active {
-	transform: rotate(360deg);
+	animation: rotate360 0.5s linear;
 }
 
-.theme-toggle-icon {
+.theme-toggle-button.dark {
+	background: #ffffff;
+}
+
+/* .theme-toggle-icon {
 	font-size: 24px;
 	align-items: center;
 	color: #272727;
@@ -88,7 +96,21 @@
 
 .theme-toggle-icon.dark {
 	color: #ffffff;
+} */
+
+.theme-toggle-icon svg {
+	width: 24px;
+	height: 24px;
 }
+
+.theme-toggle-icon.light svg {
+	fill: #ffffff;
+}
+
+.theme-toggle-icon.dark svg {
+	fill: #000000;
+}
+/* --- */
 
 @media (max-width: 768px) {
 	.mobileNav {

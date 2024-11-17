@@ -53,7 +53,7 @@ const Header = ({ initVariant = 'light' }) => {
 				</a>
 
 				<nav className={'headerNav desktopNav'}>
-					<LinkBlock />
+					<LinkBlock onClick={() => alert('Клик!')} />
 				</nav>
 
 				{isLoggedIn ? (

@@ -1,18 +1,18 @@
 import React from 'react';
 import './styles.css';
 
-const LinkBlock = onClick => (
+const LinkBlock = () => (
 	<>
-		<a href={'/routes'} onClick={onClick}>
+		<a href={'/routes'}>
 			Популярные маршруты
 		</a>
-		<a href={'/favorites'} onClick={onClick}>
+		<a href={'/favorites'}>
 			Избранное
 		</a>
-		<a href={'/bookings'} onClick={onClick}>
+		<a href={'/bookings'}>
 			Бронирования
 		</a>
-		<a href={'/search'} onClick={onClick}>
+		<a href={'/search'}>
 			Поиск
 		</a>
 	</>
