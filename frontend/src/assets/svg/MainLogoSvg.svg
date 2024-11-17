@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 804.57 804.57">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 3.58px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-3, .cls-5, .cls-6 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke-width: 4.57px;
+      }
+
+      .cls-2, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke-width: 3.73px;
+      }
+
+      .cls-4, .cls-7 {
+        stroke-width: 4px;
+      }
+
+      .cls-5 {
+        stroke-width: 3.43px;
+      }
+
+      .cls-6 {
+        stroke-width: 3.73px;
+      }
+    </style>
+  </defs>
+  <g id="_Слой_1-2" data-name="Слой 1">
+    <g>
+      <circle class="cls-2" cx="402.29" cy="402.29" r="400"/>
+      <g>
+        <polygon class="cls-4" points="503.58 301.99 797.29 402.29 503.58 502.58 403.29 796.29 302.99 502.58 9.29 402.29 302.99 301.99 403.29 8.29 503.58 301.99"/>
+        <g>
+          <polyline class="cls-7" points="403.29 402.29 503.29 502.29 790.29 402.29 797.29 402.29 790.35 402.29 17.16 402.29 9.29 402.29 403.29 402.29 302.99 301.99 303.29 302.29 9.29 402.29"/>
+          <polyline class="cls-7" points="402.43 402.29 502.43 302.29 402.43 15.29 402.43 8.29 402.43 15.22 402.43 788.41 402.43 796.29 402.43 402.29 302.14 502.58 302.43 502.29 402.43 796.29"/>
+        </g>
+      </g>
+      <g>
+        <line class="cls-1" x1="108.35" y1="571.99" x2="696.22" y2="232.58"/>
+        <line class="cls-1" x1="74.44" y1="490.13" x2="730.13" y2="314.44"/>
+        <line class="cls-1" x1="74.44" y1="314.44" x2="730.13" y2="490.13"/>
+        <line class="cls-1" x1="108.35" y1="232.58" x2="696.22" y2="571.99"/>
+        <line class="cls-3" x1="152.29" y1="152.29" x2="652.29" y2="652.29"/>
+        <line class="cls-1" x1="232.58" y1="108.35" x2="571.99" y2="696.22"/>
+        <line class="cls-1" x1="314.44" y1="74.44" x2="490.13" y2="730.13"/>
+        <line class="cls-1" x1="490.13" y1="74.44" x2="314.44" y2="730.13"/>
+        <line class="cls-1" x1="571.99" y1="108.35" x2="232.58" y2="696.22"/>
+        <line class="cls-6" x1="652.29" y1="152.29" x2="152.29" y2="652.29"/>
+      </g>
+      <g>
+        <image width="1437" height="1428" transform="translate(99.79 101.68) scale(.42)" xlink:href="ТурАланияЛого-Гора.png"/>
+        <circle class="cls-5" cx="402.29" cy="402.29" r="300"/>
+      </g>
+    </g>
+  </g>
+</svg>

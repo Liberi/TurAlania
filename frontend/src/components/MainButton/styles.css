@@ -1,37 +1,50 @@
 .main-button {
-	font-family: Arial, sans-serif;
-	font-size: 16px;
+	font-family: 'MulishExtraBold', sans-serif;
+	font-size: 1.6rem;
 	padding: 12px 24px;
 	border: none;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	min-width: 120px;
+	/* min-width: 120px; */
 }
 
 .main-button:hover:not(.disabled) {
-	opacity: 0.9;
+	opacity: 0.8;
 }
 
 /* Primary variant */
 .main-button.primary {
+	font-size: 1.4rem;
+	/* height: 54px; */
 	background-color: #3c477c;
-	color: #ffffff;
+	color: #fff;
 	border-radius: 5px;
 }
 
 .main-button.primary.disabled {
 	background-color: #27272750;
-	cursor: not-allowed;
 }
 
 /* Secondary variant */
 .main-button.secondary {
 	background-color: #3c477c;
-	color: #ffffff;
+	color: #fff;
 	border-radius: 40px;
 }
 
 .main-button.secondary.disabled {
 	background-color: #27272750;
-	cursor: not-allowed;
+}
+
+/* primaryLight variant */
+.main-button.primaryLight {
+	/* height: 50px; */
+	color: #272727;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.main-button.primaryLight.disabled {
+	color: #fff;
+	background-color: #27272750;
 }

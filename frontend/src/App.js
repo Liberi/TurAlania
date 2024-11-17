@@ -1,31 +1,41 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import { MainLogoPng } from './assets/img';
 import './App.css';
-import { MainButton } from './components';
+import { MainButton, Header } from './components';
+import { lazy, Suspense } from 'react';
+
+const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
+		<div className={'App'}>
+			<Header initVariant={'dark'} />
+			{/*  или 'light' */}
+			<section className={'App-header'}>
+				<img src={MainLogoPng} className={'App-logo'} alt={'logo'} />
 				<p>
-					Edit <code>src/App.js</code> and save to reload.
+					Начало разработки сайта <code>ТУР-Алания</code> скоро здесь
+					будет много всего)
 				</p>
 				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'
+					className={'App-link'}
+					href={'https://reactjs.org'}
+					target={'_blank'}
+					rel={'noopener noreferrer'}
 				>
-					Learn React
+					Смотреть макет
 				</a>
 				<MainButton
-					text='Нажми меня'
+					text={'Смотреть еще'}
 					onClick={() => alert('Клик!')}
-					variant='secondary'
+					variant={'primary'}
 					disabled={false}
 					containerStyle={{ marginTop: '20px' }}
 				/>
-			</header>
+			</section>
+			<Suspense fallback={<div>Загрузка...</div>}>
+				<Footer />
+			</Suspense>
 		</div>
 	);
 }

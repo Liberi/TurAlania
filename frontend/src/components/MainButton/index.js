@@ -8,8 +8,8 @@ const MainButton = ({
 	disabled = false,
 	containerStyle,
 	type = 'button',
-	children,
 	className = '',
+	children,
 }) => {
 	return (
 		<button
@@ -18,7 +18,10 @@ const MainButton = ({
 				disabled ? 'disabled' : ''
 			}`}
 			onClick={!disabled ? onClick : undefined}
-			style={containerStyle}
+			style={{
+				...containerStyle,
+				...(disabled ? { cursor: 'not-allowed' } : {}),
+			}}
 			disabled={disabled}
 		>
 			{text || children}
