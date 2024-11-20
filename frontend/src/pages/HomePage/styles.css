@@ -1,0 +1,110 @@
+/* Тень */
+.shadowText {
+	text-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+/* Блок приветствия и шапка */
+.sectionGreetings {
+	position: relative;
+	min-height: 700px;
+	height: 120vh;
+}
+
+/* Контейнер для видео */
+.video-container {
+	position: relative;
+	width: 100%;
+	height: 110vh;
+	overflow: hidden;
+}
+.video-container video {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+.video-container.pip-mode {
+	background-image: url('../../assets/img/ImageTur.jpeg');
+	background-position: center top;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.video-container.pip-mode video {
+	display: none;
+}
+
+/* Текст в центре видео */
+.text-overlay {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: white;
+	z-index: 1;
+}
+.text-overlay h1 {
+	font-family: 'MulishExtraBold', sans-serif;
+	font-size: 3.6rem;
+	margin-bottom: 18px;
+	white-space: pre-line;
+}
+.text-overlay h3 {
+	font-family: 'MulishSemiBold', sans-serif;
+	font-size: 1.6rem;
+	width: 75%;
+}
+
+/* Адаптив блок приветствия */
+@media (max-width: 1200px) {
+	.text-overlay {
+		width: 70%;
+	}
+
+	.text-overlay h1 {
+		font-size: 3rem;
+	}
+
+	.text-overlay h3 {
+		font-size: 1.4rem;
+	}
+}
+
+@media (max-width: 1024px) {
+	.sectionGreetings {
+		height: 125vh;
+	}
+}
+
+@media (max-width: 768px) {
+	.text-overlay {
+		width: 90%;
+	}
+}
+
+@media (max-width: 480px) {
+	.sectionGreetings {
+		height: 140vh;
+	}
+
+	.text-overlay {
+		width: 95%;
+	}
+
+	.text-overlay h1 {
+		font-size: 2.4rem;
+        margin-bottom: 12px;
+		white-space: normal;
+	}
+
+	.text-overlay h3 {
+		font-size: 1.2rem;
+        width: 85%;
+	}
+}
+
+/* --- */

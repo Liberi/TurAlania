@@ -1,0 +1,194 @@
+.tourForm {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	background-color: var(--white);
+	border-radius: 10px;
+	box-shadow: 0px 4px 12px var(--MainDark50);
+
+	padding: 20px 30px;
+	width: 60%;
+
+	position: absolute;
+	bottom: 4%;
+	left: 20%;
+}
+
+/* Блок полей формы */
+.field {
+	display: flex;
+	justify-content: flex-start;
+	flex: 1;
+}
+.formInfoBlock {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	/* gap: 5px; */
+}
+.formDivider {
+	align-self: center;
+	width: 1px;
+	height: 20px;
+	background-color: #e8eaeb;
+	margin-right: 20px;
+}
+.formIcon {
+	color: var(--MainDark);
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+.infoBlockText {
+	font-family: 'MulishExtraBold', sans-serif;
+	font-size: 1.6rem;
+	color: var(--MainDark);
+}
+.tourFormInput {
+	font-family: 'MulishSemiBold', sans-serif;
+	font-size: 1.2rem;
+	color: var(--MainDarkBlue);
+
+	max-width: 80%;
+	min-height: 25px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+.tourFormInput::placeholder {
+	font-family: 'MulishSemiBold', sans-serif;
+	font-size: 1.2rem;
+	vertical-align: bottom;
+	color: var(--MainDarkBlue);
+}
+
+/* Ошибка валидации */
+.tourFormInput.inputError,
+.tourFormInput.inputError::placeholder {
+	color: var(--red);
+}
+
+@keyframes shake {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	10% {
+		transform: translateX(-5px);
+	}
+	30% {
+		transform: translateX(5px);
+	}
+	50% {
+		transform: translateX(-5px);
+	}
+	70% {
+		transform: translateX(5px);
+	}
+	90% {
+		transform: translateX(-5px);
+	}
+}
+.tourFormInput.inputError {
+	animation: shake 0.4s ease-in-out;
+} /* --- */
+
+/* Кнопка */
+.tourFormButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+
+	padding: 15px 35px;
+	box-shadow: 0px 8px 20px var(--MainDarkBlue70);
+}
+
+.tourFormButton p {
+	font-family: 'MulishExtraBold', sans-serif;
+	font-size: 1.6rem;
+	color: var(--white);
+}
+
+.tourFormButton .formIcon {
+	width: 16px;
+	height: 16px;
+}
+
+/* Адаптив формы */
+@media (max-width: 1024px) {
+	.tourForm {
+		width: 86%;
+		left: 7%;
+		gap: 10px;
+	}
+
+	.tourFormInput {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.tourForm {
+		padding: 15px;
+	}
+
+	.formIcon {
+		margin-right: 8px;
+	}
+
+	.formDivider {
+		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.tourForm {
+		flex-direction: column;
+		align-items: flex-start;
+
+		gap: 15px;
+		padding: 15px 5%;
+		width: 80%;
+		left: 10%;
+		bottom: 5%;
+	}
+
+	.tourForm:focus {
+		bottom: 10%;
+	}
+
+	.field {
+		width: 100%;
+	}
+
+	.infoBlockText {
+		font-size: 1.8rem;
+	}
+	.tourFormInput {
+		font-size: 1.4rem;
+	}
+	.tourFormInput::placeholder {
+		font-size: 1.4rem;
+	}
+
+	/* Кнопка */
+	.tourFormButton {
+		align-self: center;
+		margin: 0;
+
+		padding: 15px 35px;
+	}
+
+	.tourFormButton p {
+		font-size: 1.6rem;
+	}
+
+	.tourFormButton .formIcon {
+		width: 18px;
+		height: 18px;
+	}
+}
