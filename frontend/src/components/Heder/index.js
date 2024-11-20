@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { observer } from 'mobx-react-lite';
 import { MainLogoPng, UserPhoto } from '../../assets/img';
-import MainButton from '../MainButton';
+import RootStore from '../../stores';
 import { LinkBlock, MobileNav } from './components';
+import MainButton from '../MainButton';
 import './styles.css';
 
-const Header = ({ initVariant = 'light' }) => {
+const { settingsStore } = RootStore;
+
+const Header = ({ initTheme = 'light', className }) => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	// ! Перенести в глобальный контекст
-	const [variant, setVariant] = useState(initVariant);
+	const { theme } = settingsStore;
 
+	// ! FIXME: Вынести в хранилище пользователя
 	const isLoggedIn = false;
 
 	useEffect(() => {
@@ -27,11 +31,11 @@ const Header = ({ initVariant = 'light' }) => {
 	};
 
 	return (
-		<section>
+		<section className={className}>
 			<div
 				className={`
 					headerBlock ${isScrolled || isMenuOpen ? 'scrolled' : ''}
-					${variant}
+					${isMenuOpen ? theme : initTheme}
 				`}
 			>
 				<button
@@ -69,19 +73,17 @@ const Header = ({ initVariant = 'light' }) => {
 						text={'Войти'}
 						className={'loginButton'}
 						variant={
-							variant === 'light' ? 'primary' : 'primaryLight'
+							(isMenuOpen ? theme : initTheme) === 'light'
+								? 'primary'
+								: 'primaryLight'
 						}
 						onClick={() => alert('Клик!')}
 					/>
 				)}
 			</div>
-			<MobileNav
-				isMenuOpen={isMenuOpen}
-				variant={variant}
-				setVariant={setVariant}
-			/>
+			<MobileNav isMenuOpen={isMenuOpen} theme={theme} />
 		</section>
 	);
 };
 
-export default Header;
+export default observer(Header);

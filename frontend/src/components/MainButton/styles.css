@@ -5,7 +5,6 @@
 	border: none;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	/* min-width: 120px; */
 }
 
 .main-button:hover:not(.disabled) {
@@ -15,36 +14,34 @@
 /* Primary variant */
 .main-button.primary {
 	font-size: 1.4rem;
-	/* height: 54px; */
-	background-color: #3c477c;
-	color: #fff;
+	background-color: var(--MainDarkBlue);
+	color: var(--white);
 	border-radius: 5px;
 }
 
 .main-button.primary.disabled {
-	background-color: #27272750;
+	background-color: var(--MainDark50);
 }
 
 /* Secondary variant */
 .main-button.secondary {
-	background-color: #3c477c;
-	color: #fff;
+	background-color: var(--MainDarkBlue);
+	color: var(--white);
 	border-radius: 40px;
 }
 
 .main-button.secondary.disabled {
-	background-color: #27272750;
+	background-color: var(--MainDark50);
 }
 
 /* primaryLight variant */
 .main-button.primaryLight {
-	/* height: 50px; */
-	color: #272727;
-	background-color: #fff;
+	color: var(--MainDark);
+	background-color: var(--white);
 	border-radius: 5px;
 }
 
 .main-button.primaryLight.disabled {
-	color: #fff;
-	background-color: #27272750;
+	color: var(--white);
+	background-color: var(--MainDark50);
 }

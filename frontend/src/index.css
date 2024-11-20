@@ -1,3 +1,20 @@
+:root {
+	--white: #ffffff;
+	--black: #000000;
+	--red: #c10020;
+	--yellow: #ffd700;
+	--green: #4caf50;
+	--MainDark: #272727;
+	--MainDark70: #27272770;
+	--MainDark50: #27272750;
+	--MainDark25: #27272725;
+	--MainDarkBlue: #3c477c;
+	--MainDarkBlue70: #3c477c70;
+	--MainDarkBlue50: #3c477c50;
+	--MainDarkBlue25: #3c477c25;
+	--MainLightBlue: #7681d6;
+}
+
 @font-face {
 	font-family: 'MulishBlack';
 	src: url('./assets/fonts/mulish/Mulish-Black.ttf') format('truetype');
@@ -163,4 +180,3 @@ h6 {
 	font-size: inherit;
 	font-weight: inherit;
 }
-

@@ -1,29 +1,28 @@
 import React from 'react';
 import LinkBlock from '../LinkBlock';
-import './styles.css';
 import { DayNightIcon } from '../../../../assets/svg';
+import RootStore from '../../../../stores';
+import './styles.css';
 
-const MobileNav = ({ isMenuOpen, variant, setVariant }) => {
+const { settingsStore } = RootStore;
+
+const MobileNav = ({ isMenuOpen, theme }) => {
+
 	const toggleTheme = () => {
-		setVariant(prev => (prev === 'light' ? 'dark' : 'light'));
+		settingsStore.setTheme(theme === 'light' ? 'dark' : 'light');
 	};
 
 	return (
-		<nav className={`mobileNav ${isMenuOpen ? 'open' : ''} ${variant}`}>
+		<nav className={`mobileNav ${isMenuOpen ? 'open' : ''} ${theme}`}>
 			{isMenuOpen && (
 				<>
 					<LinkBlock onClick={() => alert('Клик!')} />
 					<div className={'mobileNavSetting'}>
 						<button
-							className={`theme-toggle-button ${variant}`}
+							className={`theme-toggle-button ${theme}`}
 							onClick={toggleTheme}
 						>
-							<span className={`theme-toggle-icon ${variant}`}>
-								<DayNightIcon />
-							</span>
-							{/* <span className={`theme-toggle-icon ${variant}`}>
-								{variant === 'dark' ? '🌙' : '☀️'}
-							</span> */}
+							<DayNightIcon />
 						</button>
 					</div>
 				</>

@@ -6,7 +6,7 @@
 	top: 80px;
 	left: -150%;
 	right: 0;
-	background: #272727;
+	background: var(--MainDark);
 	padding: 20px;
 	flex-direction: column;
 	gap: 20px;
@@ -21,19 +21,19 @@
 
 /* Варианты стилей */
 .mobileNav.dark {
-	background: #272727;
+	background: var(--MainDark);
 }
 
 .mobileNav.light {
-	background: #fff;
+	background: var(--white);
 }
 
 .mobileNav.light > * {
-	color: #272727;
+	color: var(--MainDark);
 }
 
 .mobileNav.dark > * {
-	color: #fff;
+	color: var(--white);
 }
 /* --- */
 
@@ -63,7 +63,7 @@
 	height: 50px;
 	border-radius: 50%;
 	border: none;
-	background: #272727;
+	background: var(--MainDark);
 	cursor: pointer;
 	transform-origin: center center;
 	outline: none;
@@ -71,44 +71,24 @@
 	user-select: none;
 }
 
-@keyframes rotate360 {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-.theme-toggle-button:active {
-	animation: rotate360 0.5s linear;
-}
-
 .theme-toggle-button.dark {
-	background: #ffffff;
+	background: var(--white);
 }
 
-/* .theme-toggle-icon {
-	font-size: 24px;
-	align-items: center;
-	color: #272727;
-}
-
-.theme-toggle-icon.dark {
-	color: #ffffff;
-} */
-
-.theme-toggle-icon svg {
+.theme-toggle-button svg {
 	width: 24px;
 	height: 24px;
+	transition: all 0.5s linear;
 }
 
-.theme-toggle-icon.light svg {
-	fill: #ffffff;
+.theme-toggle-button.light svg {
+	fill: var(--white);
+	transform: rotate(360deg);
 }
 
-.theme-toggle-icon.dark svg {
-	fill: #000000;
+.theme-toggle-button.dark svg {
+	fill: var(--black);
+	transform: rotate(0deg);
 }
 /* --- */
 
