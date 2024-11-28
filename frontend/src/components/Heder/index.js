@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Link, useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import { MainLogoPng, UserPhoto } from '../../assets/img';
-import RootStore from '../../stores';
+import RootStore from '../../store';
 import { LinkBlock, MobileNav } from './components';
 import MainButton from '../MainButton';
+import { MainLogoPng, UserPhoto } from '../../assets/img';
 import './styles.css';
 
 const { settingsStore } = RootStore;
@@ -12,6 +13,7 @@ const { settingsStore } = RootStore;
 const Header = ({ initTheme = 'light', className }) => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const navigate = useNavigate();
 	const { theme } = settingsStore;
 
 	// ! FIXME: Вынести в хранилище пользователя
@@ -47,14 +49,14 @@ const Header = ({ initTheme = 'light', className }) => {
 					<span className={'burgerLine'} />
 				</button>
 
-				<a className={'siteNameContainer'} href={'/main'}>
+				<Link className={'siteNameContainer'} to={'/'}>
 					<LazyLoadImage
 						src={MainLogoPng}
 						alt={'Logo'}
 						className={'headerLogo'}
 					/>
 					<h1 className={'headerTitle'}>ТУР-АЛАНИЯ</h1>
-				</a>
+				</Link>
 
 				<nav className={'headerNav desktopNav'}>
 					<LinkBlock onClick={() => alert('Клик!')} />
@@ -77,7 +79,7 @@ const Header = ({ initTheme = 'light', className }) => {
 								? 'primary'
 								: 'primaryLight'
 						}
-						onClick={() => alert('Клик!')}
+						onClick={() => navigate('/register')}
 					/>
 				)}
 			</div>

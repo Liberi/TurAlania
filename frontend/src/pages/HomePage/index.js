@@ -3,16 +3,19 @@ import { Footer, Header } from '../../components';
 import ReactPlayer from 'react-player';
 import './styles.css';
 import { TourForm } from './components';
+import { observer } from 'mobx-react-lite';
+import store from '../../store';
 
-const HomePage = () => {
-	const [isPipMode, setIsPipMode] = React.useState(false);
+// eslint-disable-next-line no-unused-vars
+const HomePage = ({ navigate }) => {
+	const { settingsStore } = store;
 
 	return (
-		<section className={'pageContainer'}>
+		<>
 			<Header initTheme={'dark'} />
 			<section className={'sectionGreetings'}>
 				<div
-					className={`video-container ${isPipMode ? 'pip-mode' : ''}`}
+					className={`video-container ${settingsStore.isPipMode ? 'pip-mode' : ''}`}
 				>
 					<ReactPlayer
 						url={'/MainVideo.mp4'}
@@ -27,8 +30,8 @@ const HomePage = () => {
 							left: 0,
 							objectFit: 'cover',
 						}}
-						onEnablePIP={() => setIsPipMode(true)}
-						onDisablePIP={() => setIsPipMode(false)}
+						onEnablePIP={() => settingsStore.setIsPipMode(true)}
+						onDisablePIP={() => settingsStore.setIsPipMode(false)}
 					/>
 					<div className={'text-overlay'}>
 						<h1 className={'shadowText'}>
@@ -45,8 +48,8 @@ const HomePage = () => {
 				<TourForm />
 			</section>
 			<Footer />
-		</section>
+		</>
 	);
 };
 
-export default HomePage;
+export default observer(HomePage);

@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkBlock from '../LinkBlock';
 import { DayNightIcon } from '../../../../assets/svg';
-import RootStore from '../../../../stores';
+import RootStore from '../../../../store';
 import './styles.css';
 
 const { settingsStore } = RootStore;

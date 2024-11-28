@@ -1,6 +1,6 @@
 /* Тень */
 .shadowText {
-	text-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+	text-shadow: 0 5px 15px var(--black);
 }
 
 /* Блок приветствия и шапка */

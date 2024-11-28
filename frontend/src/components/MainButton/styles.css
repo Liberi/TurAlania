@@ -7,8 +7,18 @@
 	transition: all 0.3s ease;
 }
 
-.main-button:hover:not(.disabled) {
+@media (hover: hover) {
+	.main-button:hover:not(.disabled) {
+		opacity: 0.9;
+	}
+}
+
+.main-button:active:not(.disabled) {
 	opacity: 0.8;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 /* Primary variant */
