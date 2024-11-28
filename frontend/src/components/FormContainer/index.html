@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ВКЭ ● Регистрация</title>
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="icon" href="./assets/img/figureLog.png" type="image/png" />
+	</head>
+	<body>
+		<section class="formContainer">
+			<div class="formVisualBlock">
+				<img
+					src="./assets/img/figureLog.png"
+					alt="▢ Нет изо"
+					class="figureLog"
+				/>
+			</div>
+			<form action="#" class="form">
+				<img
+					src="./assets/img/ВКЭ.png"
+					alt="▢ Нет изо"
+					class="formLogo"
+				/>
+				<h3>Регистрация</h3>
+				<p>Рады вас видеть!</p>
+				<div class="inputContainer">
+					<label for="login" id="log">Логин</label>
+					<input
+						type="text"
+						name="login"
+						id="login"
+						placeholder="Введите свой логин"
+					/>
+				</div>
+				<div class="inputContainer">
+					<label for="login" id="log">Почта</label>
+					<input
+						type="email"
+						name="email"
+						id="email"
+						placeholder="Введите почту"
+					/>
+				</div>
+				<div class="inputContainer">
+					<label for="password" id="pass">Пароль</label>
+					<input
+						type="password"
+						name="password"
+						id="password"
+						placeholder="Введите пароль"
+					/>
+				</div>
+				<div class="inputContainer">
+					<label for="confirmPassword" id="confPassword"
+						>Повтор пароля</label
+					>
+					<input
+						type="password"
+						name="confirmPassword"
+						id="confirmPassword"
+						placeholder="Повторите пароль"
+					/>
+				</div>
+				<div class="checkboxContainer">
+					<input
+						type="checkbox"
+						name="checkbox"
+						id="checkbox"
+						title="checkbox"
+					/>
+					<label for="checkbox" class="customCheckbox">✔</label>
+					<p class="checkboxText">
+						Согласен на обработку
+						<a href="#">персональных данных</a>
+					</p>
+				</div>
+				<input type="submit" id="submit" value="Зарегистрироваться" />
+			</form>
+		</section>
+		<script src="validate.js"></script>
+		<script src="mouseEffect.js"></script>
+	</body>
+</html>
