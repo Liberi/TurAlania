@@ -10,6 +10,7 @@ const MainButton = ({
 	type = 'button',
 	className = '',
 	children,
+	...props
 }) => {
 	return (
 		<button
@@ -23,6 +24,7 @@ const MainButton = ({
 				...(disabled ? { cursor: 'not-allowed' } : {}),
 			}}
 			disabled={disabled}
+			{...props}
 		>
 			{text || children}
 		</button>

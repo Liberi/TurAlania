@@ -1,10 +1,10 @@
 import React from 'react';
 import { Footer, Header } from '../../components';
 import ReactPlayer from 'react-player';
-import './styles.css';
 import { TourForm } from './components';
 import { observer } from 'mobx-react-lite';
 import store from '../../store';
+import './styles.css';
 
 // eslint-disable-next-line no-unused-vars
 const HomePage = ({ navigate }) => {

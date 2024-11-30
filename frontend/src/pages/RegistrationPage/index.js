@@ -4,20 +4,21 @@ import { RegistrationForm } from './components';
 import './styles.css';
 
 // eslint-disable-next-line no-unused-vars
-const HomePage = ({ navigate }) => {
+const RegistrationPage = ({ navigate }) => {
 	return (
-		<section className={'registrationPage'}>
+		<>
 			<Header initTheme={'light'} />
-			<FormContainer
-				title={'Регистрация'}
-				welcomeText={'Приветствуем вас!'}
-				className={'registrationFormContainer'}
-			>
-				<RegistrationForm />
-			</FormContainer>
+			<div className={'registrationFormContainer'}>
+				<FormContainer
+					title={'Регистрация'}
+					welcomeText={'Приветствуем вас!'}
+				>
+					<RegistrationForm />
+				</FormContainer>
+			</div>
 			<Footer />
-		</section>
+		</>
 	);
 };
 
-export default HomePage;
+export default RegistrationPage;

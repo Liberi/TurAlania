@@ -1,33 +1,19 @@
-.registrationPage {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
 .registrationFormContainer {
-    margin: 6% auto;
-}
-
-@media screen and (max-width: 1366px) {
-	.registrationFormContainer {
-		margin: 8% auto;
-	}
-}
-
-@media screen and (max-width: 1024px) {
-	.registrationFormContainer {
-		margin: 10% auto;
-	}
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 110vh;
+	min-height: 900px;
 }
 
 @media screen and (max-width: 768px) {
 	.registrationFormContainer {
-		margin: 16% auto;
+		height: 115vh;
 	}
 }
 
 @media screen and (max-width: 480px) {
 	.registrationFormContainer {
-		margin: 25% auto;
+		height: 110vh;
 	}
 }

@@ -6,65 +6,48 @@ import {
 	UserFriendsIcon,
 } from '../../../../assets/svg';
 import { MyDatePicker, MainButton } from '../../../../components';
+import { validate, validateRules } from '../../../../utils';
 import './styles.css';
-import { validate } from '../../../../utils';
+
+const { isNotEmpty, isOnlyNumbers } = validateRules;
+
+const rules = {
+	location: [isNotEmpty('Введите место')],
+	guests: [
+		isNotEmpty('Введите пароль'),
+		isOnlyNumbers('Только цифры'),
+		value => value > 0 || 'Значение должно быть больше 0',
+	],
+	date: [isNotEmpty('Введите дату')],
+};
 
 const TourForm = ({ className, onSubmit }) => {
+	const [isLoading, setIsLoading] = useState(false);
 	const [formData, setFormData] = useState({
 		location: '',
 		guests: '',
 		date: null,
 	});
+	const [errors, setErrors] = useState({});
 
-	const [errors, setErrors] = useState({
-		location: false,
-		guests: false,
-		date: false,
-	});
-
-	const handleInputChange = (name, value) => {
-		setFormData(prev => ({
-			...prev,
-			[name]: value,
-		}));
-	};
-
-	const cleanErrors = () => {
-		setErrors({
-			location: false,
-			guests: false,
-			date: false,
-		});
+	const setData = (data, dataName) => {
+		setErrors(old => ({ ...old, [dataName]: null }));
+		setFormData(old => ({ ...old, [dataName]: data }));
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		const fields = {
-			location: false,
-			guests: false,
-			date: false,
-		};
+		const { isValid } = validate(formData, rules, setErrors);
+		if (!isValid) return;
 
-		console.log(`👾 > handleSubmit > formData:`, formData);
-		fields.location = !validate.isNotEmpty(formData.location);
+		setErrors({});
+		setIsLoading(true);
 
-
-		fields.guests = !(
-			validate.isNotEmpty(formData.guests) &&
-			validate.isNumber(formData.guests) &&
-			validate.isLength(formData.guests, 1, 2)
-		);
-		fields.date = validate.isDate(formData.date);
-
-		setErrors(fields);
-
-		const hasErrors = Object.values(fields).includes(true);
-		if (!hasErrors) {
-			console.log('Форма отправлена:', formData);
-			onSubmit && onSubmit(formData);
-		} else {
-			setTimeout(cleanErrors, 3000);
-		}
+		onSubmit && onSubmit();
+		// TODO: Отправить запрос на регистрацию
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 1000);
 	};
 
 	return (
@@ -79,10 +62,9 @@ const TourForm = ({ className, onSubmit }) => {
 						name={'locationInput'}
 						placeholder={'Ваше место путешествия?'}
 						value={formData.location}
-						onChange={e =>
-							handleInputChange('location', e.target.value)
-						}
+						onChange={e => setData(e.target.value, 'location')}
 						className={`tourFormInput ${errors.location ? 'inputError' : ''}`}
+						disabled={isLoading}
 					/>
 				</div>
 			</div>
@@ -98,10 +80,9 @@ const TourForm = ({ className, onSubmit }) => {
 						name={'guestsInput'}
 						placeholder={'Сколько с вами человек?'}
 						value={formData.guests}
-						onChange={e =>
-							handleInputChange('guests', e.target.value)
-						}
+						onChange={e => setData(e.target.value, 'guests')}
 						className={`tourFormInput ${errors.guests ? 'inputError' : ''}`}
+						disabled={isLoading}
 					/>
 				</div>
 			</div>
@@ -113,8 +94,9 @@ const TourForm = ({ className, onSubmit }) => {
 					<MyDatePicker
 						placeholderText={'Дата поездки?'}
 						selected={formData.date}
-						onChange={date => handleInputChange('date', date)}
+						onChange={date => setData(date, 'date')}
 						className={`tourFormInput ${errors.date ? 'inputError' : ''}`}
+						disabled={isLoading}
 					/>
 				</div>
 			</div>
@@ -122,6 +104,7 @@ const TourForm = ({ className, onSubmit }) => {
 				type={'submit'}
 				variant={'secondary'}
 				className={'tourFormButton'}
+				disabled={isLoading}
 			>
 				<SearchIcon className={'formIcon'} />
 				<p>Найти</p>
