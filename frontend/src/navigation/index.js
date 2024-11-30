@@ -1,9 +1,11 @@
 import React from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-import { HomePage, RegistrationPage } from '../pages';
+import { AuthorizationPage, HomePage, NotFoundPage, RegistrationPage } from '../pages';
+import { useScrollToTop } from '../hooks';
 
 const Navigation = () => {
 	const navigate = useNavigate();
+	useScrollToTop();
 
 	return (
 		<Routes>
@@ -16,8 +18,11 @@ const Navigation = () => {
 				path={'/register'}
 				element={<RegistrationPage navigate={navigate} />}
 			/>
-			{/* <Route path={'/login'} element={<Login />} />
-			<Route path={'/404'} element={<NotFound />} /> */}
+			<Route
+				path={'/login'}
+				element={<AuthorizationPage navigate={navigate} />}
+			/>
+			<Route path={'/404'} element={<NotFoundPage />} />
 			<Route path={'*'} element={<Navigate to={'/404'} />} />
 		</Routes>
 	);

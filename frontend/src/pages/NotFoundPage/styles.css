@@ -1,0 +1,67 @@
+/* Тень */
+.shadowBlock {
+	filter: drop-shadow(0 10px 25px var(--MainDark70));
+}
+.shadowText {
+	text-shadow: 0 5px 15px var(--MainDark25);
+}
+
+/* Контейнер */
+.authorizationFormContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	padding: 100px 0 100px 0;
+}
+
+/* Изображение */
+.notFoundImageWrapper {
+	height: 50%;
+}
+
+.notFoundImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	animation: rotate360 4s ease-in-out infinite;
+}
+
+@keyframes rotate360 {
+	0% {
+		transform: rotate(0deg);
+	}
+	45% {
+		transform: rotate(360deg);
+	}
+	55% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Текст */
+.authorizationFormContainer h1 {
+	font-family: 'MulishExtraBold', sans-serif;
+	font-size: 3.6rem;
+	text-align: center;
+	line-height: 2.9rem;
+	color: var(--MainDark);
+	margin-top: 55px;
+}
+
+/* Адаптив */
+@media screen and (max-width: 480px) {
+	.notFoundImageWrapper {
+		height: 30%;
+	}
+
+	.authorizationFormContainer h1 {
+		font-size: 2.4rem;
+		line-height: 2.2rem;
+		margin-top: 35px;
+	}
+}
