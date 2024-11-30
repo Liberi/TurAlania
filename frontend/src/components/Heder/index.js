@@ -5,8 +5,9 @@ import { observer } from 'mobx-react-lite';
 import RootStore from '../../store';
 import { LinkBlock, MobileNav } from './components';
 import MainButton from '../MainButton';
-import { MainLogoPng, UserPhoto } from '../../assets/img';
+import { UserPhoto } from '../../assets/img';
 import './styles.css';
+import MainLogo from '../MainLogo';
 
 const { settingsStore } = RootStore;
 
@@ -50,9 +51,8 @@ const Header = ({ initTheme = 'light', className }) => {
 				</button>
 
 				<Link className={'siteNameContainer'} to={'/'}>
-					<LazyLoadImage
-						src={MainLogoPng}
-						alt={'Logo'}
+					<MainLogo
+						visibleByDefault={true}
 						className={'headerLogo'}
 					/>
 					<h1 className={'headerTitle'}>ТУР-АЛАНИЯ</h1>

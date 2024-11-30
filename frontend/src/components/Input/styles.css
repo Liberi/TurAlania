@@ -2,7 +2,7 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 5px;
+	/* gap: 5px; */
 }
 
 .input {
@@ -11,11 +11,15 @@
 	background-color: #f4f4f5;
 	font-family: 'MulishSemiBold', sans-serif;
 	font-size: 1.4rem;
-	color: var(--MainDark70);
+	color: var(--MainDark);
 	border-radius: 5px;
 	padding: 15px 20px;
 	border: 1px solid transparent;
 	transition: all 0.3s ease;
+}
+
+.input::placeholder {
+	color: var(--MainDark70);
 }
 
 .input:focus {
@@ -41,6 +45,13 @@
 	color: var(--red);
 }
 
+/* Стили для отключенного инпута */
+.inputDisabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* Стили для ошибки */
 .inputError {
 	animation: shakeInput 0.4s ease-in-out;
 	border-color: var(--red) !important;
