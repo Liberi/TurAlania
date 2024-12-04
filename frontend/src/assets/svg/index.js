@@ -1,4 +1,5 @@
 export { default as MainLogoSvg } from './MainLogoSvg.svg';
+export { default as StandardUserIcon } from './StandardUserIcon.svg';
 export { ReactComponent as VkLogo } from './VkLogo.svg';
 export { ReactComponent as TgLogo } from './TgLogo.svg';
 export { ReactComponent as InstLogo } from './InstLogo.svg';
