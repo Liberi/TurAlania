@@ -3,7 +3,6 @@ import { Footer, FormContainer, Header } from '../../components';
 import { RegistrationForm } from './components';
 import './styles.css';
 
-// eslint-disable-next-line no-unused-vars
 const RegistrationPage = ({ navigate }) => {
 	return (
 		<>
@@ -13,7 +12,7 @@ const RegistrationPage = ({ navigate }) => {
 					title={'Регистрация'}
 					welcomeText={'Приветствуем вас!'}
 				>
-					<RegistrationForm />
+					<RegistrationForm navigate={navigate} />
 				</FormContainer>
 			</div>
 			<Footer />

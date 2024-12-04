@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Input, MainButton } from '../../../../components';
 import { validate, validateRules } from '../../../../utils';
+import store from '../../../../store';
 import './styles.css';
 
 const { isNotEmpty, isEmail, isPasswordValid } = validateRules;
@@ -14,7 +15,7 @@ const rules = {
 	],
 };
 
-const AuthorizationForm = () => {
+const AuthorizationForm = ({ navigate }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [formData, setFormData] = useState({
 		email: '',
@@ -35,10 +36,19 @@ const AuthorizationForm = () => {
 		setErrors({});
 		setIsLoading(true);
 
-		// TODO: Отправить запрос на авторизацию
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 1000);
+		store.userStore
+			.login(formData)
+			.then(result => {
+				if (result.status) {
+					navigate('/');
+				} else {
+					setErrors({
+						...errors,
+						...result.errors,
+					});
+				}
+			})
+			.finally(() => setIsLoading(false));
 	};
 
 	return (
@@ -71,7 +81,7 @@ const AuthorizationForm = () => {
 				<MainButton
 					type={'submit'}
 					className={'authorizationButton'}
-					text={'Зарегистрироваться'}
+					text={'Войти'}
 					disabled={isLoading}
 				/>
 				<div className={'registerBlockText'}>

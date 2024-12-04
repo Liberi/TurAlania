@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { Input, MainButton } from '../../../../components';
 import { validate, validateRules } from '../../../../utils';
 import './styles.css';
+import store from '../../../../store';
 
 const { isNotEmpty, minLength, isEmail, isPasswordValid } = validateRules;
 
 const rules = {
-	login: [isNotEmpty('Введите имя'), minLength(2, 'Минимум 2 символов')],
+	full_name: [isNotEmpty('Введите имя'), minLength(2, 'Минимум 2 символов')],
 	email: [isNotEmpty('Введите почту'), isEmail('Неверный формат почты')],
 	password: [
 		isNotEmpty('Введите пароль'),
@@ -20,10 +21,10 @@ const rules = {
 	],
 };
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ navigate }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [formData, setFormData] = useState({
-		login: '',
+		full_name: '',
 		email: '',
 		password: '',
 		confirmPassword: '',
@@ -43,24 +44,33 @@ const RegistrationForm = () => {
 		setErrors({});
 		setIsLoading(true);
 
-		// TODO: Отправить запрос на регистрацию
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 1000);
+		store.userStore
+			.register(formData)
+			.then(result => {
+				if (result.status) {
+					navigate('/');
+				} else {
+					setErrors({
+						...errors,
+						...result.errors,
+					});
+				}
+			})
+			.finally(() => setIsLoading(false));
 	};
 
 	return (
 		<form className={'registrationForm'} onSubmit={onSubmit}>
 			<Input
 				type={'text'}
-				name={'login'}
-				id={'login'}
+				name={'full_name'}
+				id={'full_name'}
 				placeholder={'Введите свое имя'}
 				title={'Имя'}
 				className={'inputRegistration'}
-				value={formData.login}
-				onChange={e => setData(e.target.value, 'login')}
-				error={errors.login}
+				value={formData.full_name}
+				onChange={e => setData(e.target.value, 'full_name')}
+				error={errors.full_name}
 				enabled={!isLoading}
 			/>
 			<Input

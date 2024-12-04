@@ -3,7 +3,6 @@ import { Footer, FormContainer, Header } from '../../components';
 import { AuthorizationForm } from './components';
 import './styles.css';
 
-// eslint-disable-next-line no-unused-vars
 const AuthorizationPage = ({ navigate }) => {
 	return (
 		<>
@@ -13,7 +12,7 @@ const AuthorizationPage = ({ navigate }) => {
 					title={'Авторизация'}
 					welcomeText={'С возвращением!'}
 				>
-					<AuthorizationForm />
+					<AuthorizationForm navigate={navigate} />
 				</FormContainer>
 			</div>
 			<Footer />

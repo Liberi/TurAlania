@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import RootStore from '../../store';
 import { LinkBlock, MobileNav } from './components';
 import MainButton from '../MainButton';
-import { UserPhoto } from '../../assets/img';
-import './styles.css';
 import MainLogo from '../MainLogo';
+import { StandardUserIcon } from '../../assets/svg';
+import RootStore from '../../store';
+import './styles.css';
 
-const { settingsStore } = RootStore;
+const { settingsStore, userStore } = RootStore;
 
 const Header = ({ initTheme = 'light', className }) => {
+	const navigate = useNavigate();
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const navigate = useNavigate();
 	const { theme } = settingsStore;
-
-	// ! FIXME: Вынести в хранилище пользователя
-	const isLoggedIn = false;
+	const { id, avatarUrl } = userStore.data || {};
+	const isLoggedIn = !!id;
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -31,6 +31,11 @@ const Header = ({ initTheme = 'light', className }) => {
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
+	};
+
+	const handleLogout = () => {
+		userStore.logout();
+		navigate('/');
 	};
 
 	return (
@@ -65,10 +70,13 @@ const Header = ({ initTheme = 'light', className }) => {
 				{isLoggedIn ? (
 					<div className={'profileImageContainer'}>
 						<LazyLoadImage
-							src={UserPhoto}
+							src={!avatarUrl ? StandardUserIcon : avatarUrl}
+							placeholderSrc={StandardUserIcon}
+							effect={'blur'}
 							alt={'Profile'}
 							className={'profileImage'}
 						/>
+						<p className={`profileLogout ${initTheme}`} onClick={handleLogout}>Выйти</p>
 					</div>
 				) : (
 					<MainButton
@@ -79,7 +87,7 @@ const Header = ({ initTheme = 'light', className }) => {
 								? 'primary'
 								: 'primaryLight'
 						}
-						onClick={() => navigate('/register')}
+						onClick={() => navigate('/login')}
 					/>
 				)}
 			</div>
