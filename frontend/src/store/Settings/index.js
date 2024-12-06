@@ -9,12 +9,11 @@ export class SettingsStore {
 
 	constructor() {
 		makeAutoObservable(this);
-		this.getLocalStorageTheme();
-
 		// Создаем debounce-функцию как переменную
 		this.debouncedSetTheme = createDebouncedFunction(theme => {
 			services.storageService.setItem(STORAGE_KEYS.THEME, theme);
 		}, 1000);
+		this.getLocalStorageTheme();
 	}
 
 	getLocalStorageTheme() {
