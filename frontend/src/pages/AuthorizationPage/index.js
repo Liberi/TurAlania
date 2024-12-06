@@ -6,7 +6,7 @@ import './styles.css';
 const AuthorizationPage = ({ navigate }) => {
 	return (
 		<>
-			<Header initTheme={'light'} />
+			<Header initTheme={'light'} navigate={navigate} />
 			<div className={'authorizationFormContainer'}>
 				<FormContainer
 					title={'Авторизация'}

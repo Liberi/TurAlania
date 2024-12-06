@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { LinkBlock, MobileNav } from './components';
 import MainButton from '../MainButton';
@@ -12,8 +12,7 @@ import './styles.css';
 
 const { settingsStore, userStore } = RootStore;
 
-const Header = ({ initTheme = 'light', className }) => {
-	const navigate = useNavigate();
+const Header = ({ navigate, initTheme = 'light', className }) => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { theme } = settingsStore;
@@ -76,7 +75,12 @@ const Header = ({ initTheme = 'light', className }) => {
 							alt={'Profile'}
 							className={'profileImage'}
 						/>
-						<p className={`profileLogout ${initTheme}`} onClick={handleLogout}>Выйти</p>
+						<p
+							className={`profileLogout ${initTheme}`}
+							onClick={handleLogout}
+						>
+							Выйти
+						</p>
 					</div>
 				) : (
 					<MainButton

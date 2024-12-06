@@ -17,7 +17,7 @@
 	stroke: var(--MainDarkBlue25);
 }
 
-/* Heder */
+/* Header */
 .react-datepicker__header {
 	padding-top: 0.8em;
 	background-color: var(--white);
