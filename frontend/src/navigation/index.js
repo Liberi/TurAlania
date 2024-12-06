@@ -1,10 +1,15 @@
 import React from 'react';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-import { AuthorizationPage, HomePage, NotFoundPage, RegistrationPage } from '../pages';
-import { useScrollToTop } from '../hooks';
+import { Routes, Route } from 'react-router-dom';
+import {
+	AuthorizationPage,
+	HomePage,
+	NotFoundPage,
+	RegistrationPage,
+} from '../pages';
+import { useNavigationManager, useScrollToTop } from '../hooks';
 
 const Navigation = () => {
-	const navigate = useNavigate();
+	const { navigateTo } = useNavigationManager();
 	useScrollToTop();
 
 	return (
@@ -12,18 +17,24 @@ const Navigation = () => {
 			<Route
 				exact
 				path={'/'}
-				element={<HomePage navigate={navigate} />}
+				element={<HomePage navigate={navigateTo} />}
 			/>
 			<Route
 				path={'/register'}
-				element={<RegistrationPage navigate={navigate} />}
+				element={<RegistrationPage navigate={navigateTo} />}
 			/>
 			<Route
 				path={'/login'}
-				element={<AuthorizationPage navigate={navigate} />}
+				element={<AuthorizationPage navigate={navigateTo} />}
 			/>
-			<Route path={'/404'} element={<NotFoundPage />} />
-			<Route path={'*'} element={<Navigate to={'/404'} />} />
+			<Route
+				path={'/404'}
+				element={<NotFoundPage navigate={navigateTo} />}
+			/>
+			<Route
+				path={'*'}
+				element={<NotFoundPage navigate={navigateTo} />}
+			/>
 		</Routes>
 	);
 };

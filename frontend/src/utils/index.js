@@ -1,11 +1,12 @@
-
-export const debounce = delay => {
+export const createDebouncedFunction = (callback, delay) => {
 	let timeout;
 
-	return cb => {
+	return (...args) => {
 		clearTimeout(timeout);
 
-		timeout = setTimeout(cb, delay);
+		timeout = setTimeout(() => {
+			callback(...args);
+		}, delay);
 	};
 };
 

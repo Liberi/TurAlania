@@ -6,7 +6,7 @@ import './styles.css';
 const RegistrationPage = ({ navigate }) => {
 	return (
 		<>
-			<Header initTheme={'light'} />
+			<Header initTheme={'light'} navigate={navigate} />
 			<div className={'registrationFormContainer'}>
 				<FormContainer
 					title={'Регистрация'}

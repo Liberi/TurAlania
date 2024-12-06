@@ -4,10 +4,10 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { NotFoundImage, NotFoundImageLow } from '../../assets/img';
 import './styles.css';
 
-const NotFoundPage = () => {
+const NotFoundPage = ({ navigate }) => {
 	return (
 		<>
-			<Header initTheme={'light'} />
+			<Header initTheme={'light'} navigate={navigate} />
 			<div className={'authorizationFormContainer'}>
 				<LazyLoadImage
 					src={NotFoundImage}

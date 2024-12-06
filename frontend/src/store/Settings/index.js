@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { debounce } from '../../utils';
+import { createDebouncedFunction } from '../../utils';
 import services from '../../services';
 import { STORAGE_KEYS } from '../../constants';
 
@@ -10,7 +10,9 @@ export class SettingsStore {
 	constructor() {
 		makeAutoObservable(this);
 		this.getLocalStorageTheme();
-		this.debouncedSetTheme = debounce(theme => {
+
+		// Создаем debounce-функцию как переменную
+		this.debouncedSetTheme = createDebouncedFunction(theme => {
 			services.storageService.setItem(STORAGE_KEYS.THEME, theme);
 		}, 1000);
 	}
