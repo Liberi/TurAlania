@@ -59,7 +59,43 @@
 	width: 75%;
 }
 
-/* Адаптив блок приветствия */
+/* Блок популярного сейчас */
+.sectionPopularNow {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 15%;
+}
+
+.popularNowDescriptions {
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 80%;
+	gap: 15px;
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
+.popularNowDescriptions > * {
+	color: var(--MainDark);
+	text-align: center;
+}
+
+.popularNowDescriptions h2 {
+	font-family: 'MulishExtraBold', sans-serif;
+	font-size: 4rem;
+}
+
+.popularNowDescriptions h3 {
+	font-family: 'MulishSemiBold', sans-serif;
+	font-size: 1.6rem;
+	width: 50%;
+}
+
+/* Адаптив */
 @media (max-width: 1200px) {
 	.text-overlay {
 		width: 70%;
@@ -75,18 +111,50 @@
 }
 
 @media (max-width: 1024px) {
+	.popularNowDescriptions {
+		width: 90%;
+	}
+
+	.popularNowDescriptions h3 {
+		width: 60%;
+	}
+
 	.sectionGreetings {
 		height: 125vh;
+	}
+
+	.sectionPopularNow {
+		padding: 0 5%;
 	}
 }
 
 @media (max-width: 768px) {
+	.popularNowDescriptions {
+		margin-top: 40px;
+	}
+
+	.popularNowDescriptions h2 {
+		font-size: 3.2rem;
+	}
+
+	.popularNowDescriptions h3 {
+		width: 80%;
+	}
+
 	.text-overlay {
 		width: 90%;
+	}
+
+	.sectionPopularNow {
+		padding: 0 2.5%;
 	}
 }
 
 @media (max-width: 480px) {
+	.popularNowDescriptions h3 {
+		width: 100%;
+	}
+
 	.sectionGreetings {
 		height: 140vh;
 	}
@@ -97,14 +165,44 @@
 
 	.text-overlay h1 {
 		font-size: 2.4rem;
-        margin-bottom: 12px;
+		margin-bottom: 12px;
 		white-space: normal;
 	}
 
 	.text-overlay h3 {
 		font-size: 1.2rem;
-        width: 85%;
+		width: 85%;
 	}
 }
 
-/* --- */
+/* Стили карточек популярного сейчас */
+.popularTourCardsWarper {
+	width: 100%;
+	margin-bottom: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+@media ((max-width: 1628px) and (min-width: 1215px)),
+	((max-width: 1024px) and (min-width: 945px)) {
+	.popularTourCardsWarper > *:nth-child(n + 4) {
+		display: none;
+	}
+}
+@media ((max-width: 1214px) and (min-width: 1025px)), (max-width: 944px) {
+	.popularTourCardsWarper {
+		justify-content: space-around;
+	}
+	.popularTourCardsWarper > *:nth-child(n + 4) {
+		display: flex;
+	}
+}
+
+@media (max-width: 589px) {
+	.popularTourCardsWarper {
+		justify-content: center;
+	}
+}

@@ -1,0 +1,233 @@
+/* Стили контейнера */
+.container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	transition: padding-bottom 0.3s ease;
+}
+
+/* Стили разделителя */
+.separator {
+	font-size: 1.4rem;
+	font-family: 'MulishSemiBold', sans-serif;
+	color: var(--MainDark);
+	user-select: none;
+}
+
+/* Стили изображения */
+.bigImage {
+	width: 100%;
+	height: 550px;
+	border-radius: 5px;
+	object-fit: cover;
+}
+
+/* Стили блока основного белого блока */
+.popularNow {
+	position: absolute;
+	top: 450px;
+	width: 90%;
+	background-color: var(--white);
+	padding: 35px 60px;
+	border-radius: 5px;
+	box-shadow: 0 4px 15px var(--MainDark50);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* Стили блока информации */
+.informationBlock {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* Стили типографики */
+.informationBlock > h3 {
+	font-size: 1.2rem;
+	font-family: 'MulishExtraBold', sans-serif;
+	background-color: var(--MainLightBlue);
+	color: var(--white);
+	padding: 8px 15px;
+	border-radius: 30px;
+	user-select: none;
+}
+
+.informationBlock > h2 {
+	font-size: 4rem;
+	font-family: 'MulishBold', sans-serif;
+	color: var(--MainDark);
+}
+
+/* Блок даты и местоположения */
+.dateAndLocation {
+	display: flex;
+	align-items: center;
+	font-size: 1.4rem;
+	font-family: 'MulishSemiBold', sans-serif;
+	color: var(--MainDark);
+}
+
+.dateAndLocation > p {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.dateAndLocationSeparator {
+	margin: 0 10px;
+}
+
+/* Блок кнопок */
+.controlBlock {
+	display: flex;
+	align-items: center;
+}
+
+.controlBlock > span {
+	margin: 0 15px;
+}
+
+.controlBlockButton {
+	padding: 15px 55px;
+	box-shadow: 0 8px 20px var(--MainDarkBlue70);
+}
+
+.iconButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	transition: all 0.5s ease;
+	background-color: var(--MainDarkBlue50);
+	margin-right: 5px;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.iconButton svg {
+	transition: fill 0.3s ease;
+}
+
+@media (hover: hover) {
+	.iconButton:hover {
+		opacity: 0.8;
+		transform: scale(1.05);
+	}
+}
+
+.iconButton:active {
+	opacity: 0.8;
+	transform: scale(1.05);
+}
+
+/* Блок описания */
+.popularNow .description {
+	font-size: 1.6rem;
+	font-family: 'MulishSemiBold', sans-serif;
+	color: var(--MainDark);
+	line-height: 1.6;
+	width: 50%;
+	height: 60%;
+	margin-left: 10px;
+}
+
+/* Адаптивные стили */
+@media screen and (max-width: 1024px) {
+	.popularNow {
+		/* width: 85%; */
+		padding: 35px 45px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.popularNow {
+		/* width: 90%; */
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 25px 45px;
+		gap: 25px;
+	}
+
+	.informationBlock > h2 {
+		font-size: 3.2rem;
+	}
+
+	.controlBlockButton {
+		padding: 10px 50px;
+	}
+
+	.iconButton {
+		width: 40px;
+		height: 40px;
+	}
+
+	.popularNow .description {
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.bigImage {
+		height: 450px;
+	}
+
+	.popularNow {
+		top: 350px;
+		padding: 20px 30px;
+		gap: 20px;
+	}
+
+	.informationBlock > h3 {
+		font-size: 1rem;
+	}
+
+	.informationBlock > h2 {
+		font-size: 2.4rem;
+	}
+
+	.dateAndLocation {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 5px;
+	}
+
+	.dateAndLocationSeparator {
+		display: none;
+	}
+
+	.controlBlockButton {
+		padding: 10px 30px;
+	}
+
+	.controlBlock > span {
+		margin: 0 10px;
+	}
+
+	.informationBlock {
+		gap: 5px;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.popularNow {
+		top: 350px;
+		padding: 20px 20px;
+		gap: 20px;
+	}
+
+	.controlBlockButton {
+		padding: 10px 20px;
+	}
+
+	.controlBlock > span {
+		margin: 0 5px;
+	}
+}

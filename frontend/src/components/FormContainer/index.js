@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { FormImage } from '../../assets/img';
-import { debounce } from '../../utils';
+import { createDebouncedFunction } from '../../utils';
 import MainLogo from '../MainLogo';
 import './styles.css';
 
@@ -11,20 +11,23 @@ const ContainerForm = ({ title, welcomeText, className, children }) => {
 
 	// *NOTE: Параметры для анимации "Убегания" логотипа
 	useEffect(() => {
-		const debouncedMove = debounce(16);
+		const debouncedMove = createDebouncedFunction(e => {
+			const element = visualBlockRef.current;
+
+			if (!element) return;
+
+			const rect = element.getBoundingClientRect();
+			const x = ((e.clientX - rect.left) / element.offsetWidth) * 100;
+			const y = ((e.clientY - rect.top) / element.offsetHeight) * 100;
+
+			element.style.setProperty('--x', x);
+			element.style.setProperty('--y', y);
+		}, 16);
+
 		const element = visualBlockRef.current;
 
 		const handleMouseMove = e => {
-			debouncedMove(() => {
-				if (!element) return;
-
-				const rect = element.getBoundingClientRect();
-				const x = ((e.clientX - rect.left) / element.offsetWidth) * 100;
-				const y = ((e.clientY - rect.top) / element.offsetHeight) * 100;
-
-				element.style.setProperty('--x', x);
-				element.style.setProperty('--y', y);
-			});
+			debouncedMove(e);
 		};
 
 		element.addEventListener('mousemove', handleMouseMove);
