@@ -1,8 +1,8 @@
-# TurAlania - Туристический портал
-
-<p align="center">
-  <img src="docs/assets/logo.png" alt="TurAlania Logo" width="200"/>
+<p align="left">
+  <img src="/frontend/src/assets/img/MainLogoPng.png" alt="TurAlania Logo" width="100"/>
 </p>
+
+# TurAlania - Туристический портал
 
 ## 📋 Содержание
 - [Обзор проекта](#обзор-проекта)
@@ -38,8 +38,9 @@ frontend/
 ## ⚙️ Backend
 
 ### Технологический стек
-- Node.js
+- WampServer
 - PhpMyAdmin
+- Apache
 
 ### Структура backend
 ```
