@@ -8,9 +8,6 @@ frontend/.pnp.js
 # testing
 frontend/coverage
 
-# production
-frontend/build
-
 # misc
 frontend/.DS_Store
 frontend/.env
@@ -20,4 +17,6 @@ frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
 
-backend/api/.models
+backend/.models
+
+fileStorage

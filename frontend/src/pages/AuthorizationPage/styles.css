@@ -1,8 +1,0 @@
-.authorizationFormContainer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	min-height: 780px;
-	padding: 100px 0 100px 0;
-}
