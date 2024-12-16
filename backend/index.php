@@ -22,6 +22,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 require_once __DIR__ . '/api/helpers/Response.php';
 require_once __DIR__ . '/api/controllers/UserController.php';
+require_once __DIR__ . '/api/controllers/ImageController.php';
 // require_once __DIR__ . '/api/controllers/PlaceController.php';
 // require_once __DIR__ . '/api/controllers/BookingController.php';
 
@@ -34,6 +35,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 $routes = [
 	'POST:users/create' => ['UserController', 'create'],
 	'POST:users/login' => ['UserController', 'login'],
+	'GET:images' => ['ImageController', 'getImages'],
 	// 'GET:/places' => ['PlaceController', 'getAll'],
 	// 'POST:/bookings' => ['BookingController', 'create']
 ];

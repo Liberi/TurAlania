@@ -21,7 +21,7 @@ const rules = {
 	date: [isNotEmpty('Введите дату')],
 };
 
-const TourForm = ({ className, onSubmit }) => {
+const TourForm = ({ className = '', onSubmit }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [formData, setFormData] = useState({
 		location: '',

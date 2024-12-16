@@ -6,7 +6,7 @@ import { createDebouncedFunction } from '../../utils';
 import MainLogo from '../MainLogo';
 import './styles.css';
 
-const ContainerForm = ({ title, welcomeText, className, children }) => {
+const ContainerForm = ({ title, welcomeText, className = '', children }) => {
 	const visualBlockRef = useRef(null);
 
 	// *NOTE: Параметры для анимации "Убегания" логотипа

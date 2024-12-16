@@ -4,7 +4,7 @@ import 'react-lazy-load-image-component/src/effects/black-and-white.css';
 import { MainLogoSvg } from '../../assets/svg';
 import { MainLogoLow } from '../../assets/img';
 
-const MainLogo = ({ className, ...props }) => {
+const MainLogo = ({ className = '', ...props }) => {
 	return (
 		<LazyLoadImage
 			className={className}

@@ -43,13 +43,13 @@ export const formatDateInput = input => {
 	return formatted;
 };
 
-// eslint-disable-next-line no-unused-vars
-export const getUriFromPath = path => {
-	/* if (!path || !API_URL) return;
+export const getApiUrlFromPath = path => {
+	// const CURRENT_API_URL = process.env.REACT_APP_API_URL_NAMED;
+	const CURRENT_API_URL = process.env.REACT_APP_API_URL_IP;
 
-	return {
-		uri: `${API_URL}/${path}`,
-	}; */
+	if (!path || !CURRENT_API_URL) return;
+
+	return `${CURRENT_API_URL}/${path}`;
 };
 
 export const validate = (state, rules, setErrors) => {

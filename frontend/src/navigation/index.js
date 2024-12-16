@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {
 	AuthorizationPage,
+	GalleryPage,
 	HomePage,
 	NotFoundPage,
 	RegistrationPage,
@@ -26,6 +27,10 @@ const Navigation = () => {
 			<Route
 				path={'/login'}
 				element={<AuthorizationPage navigate={navigateTo} />}
+			/>
+			<Route
+				path={'/gallery'}
+				element={<GalleryPage navigate={navigateTo} />}
 			/>
 			<Route
 				path={'/404'}

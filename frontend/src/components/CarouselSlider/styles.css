@@ -1,0 +1,33 @@
+.carouselContainer {
+	width: 100%;
+	padding: 0 15px;
+}
+
+.carouselHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.carouselSlider {
+	margin: 0 -15px;
+}
+
+.carouselItem {
+	padding: 0 15px;
+}
+
+/* Отключаем стандартные стили слайдера */
+/* .carouselSlider .slick-track {
+	display: flex;
+	gap: 30px;
+}
+
+.carouselSlider .slick-slide {
+	height: auto;
+}
+
+.carouselSlider .slick-slide > div {
+	height: 100%;
+} */

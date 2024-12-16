@@ -1,0 +1,71 @@
+/* Секция галереи */
+.gallerySection {
+	padding: 0 15%;
+}
+
+.galleryImages {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-gap: 30px;
+}
+
+.galleryImage {
+	width: 100%;
+	aspect-ratio: 9/12; /* или другое соотношение сторон */
+	object-fit: cover;
+	background-color: var(--MainDark10); /* цвет фона до загрузки */
+}
+
+.galleryImages img.successLoad:hover {
+	transform: scale(1.01);
+}
+
+/* Заголовок галереи */
+.galleryHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 60px;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+	.gallerySection {
+		padding: 0 5%;
+	}
+}
+
+@media (max-width: 768px) {
+	.gallerySection {
+		padding: 0 2.5%;
+	}
+
+	.galleryImages {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 60px;
+	}
+}
+
+@media (max-width: 480px) {
+	.gallerySection {
+		padding: 0 12%;
+	}
+
+	.galleryHeader {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+	}
+
+	.galleryImages {
+		grid-template-columns: 1fr;
+		grid-gap: 20px;
+	}
+}
+
+@media (max-width: 320px) {
+	.gallerySection {
+		padding: 0 6%;
+	}
+}

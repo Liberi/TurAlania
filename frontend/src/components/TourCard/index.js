@@ -1,7 +1,10 @@
 import React from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ReactStars from 'react-stars';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { CalendarIcon, LengthIcon, DifficultyIcon } from '../../assets/svg';
+import { NotFoundImageLow } from '../../assets/img';
+import { getApiUrlFromPath } from '../../utils';
 import colors from '../../styles/colors';
 import './styles.css';
 
@@ -14,14 +17,26 @@ const TourCard = ({
 	rating,
 	reviewCount,
 	price,
+	className = '',
 }) => {
+	const src = getApiUrlFromPath(`fileStorage/images/original/${image.name}`);
+	const placeholderSrc = image?.small
+		? getApiUrlFromPath(`fileStorage/images/small/${image.small}`)
+		: null;
+
 	return (
-		<div className={'tourCard'}>
+		<div className={'tourCard ' + className}>
 			<div className={'cardContent'}>
 				<LazyLoadImage
-					src={image}
-					alt={title}
+					src={src}
+					placeholderSrc={placeholderSrc}
+					effect={'blur'}
 					className={'cardImage'}
+					alt={image.title}
+					onError={e => {
+						e.target.src = NotFoundImageLow;
+						e.target.className = 'cardImage imgNotFound';
+					}}
 				/>
 
 				<h3 className={'cardTitle'}>{title}</h3>

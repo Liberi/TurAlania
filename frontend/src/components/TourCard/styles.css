@@ -20,17 +20,27 @@
 .cardContent {
 	padding: 10px;
 	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.cardContent > span {
+	height: 180px;
 }
 
 .cardImage {
-	min-height: 180px;
-	height: 45%;
+	height: 100%;
 	width: 100%;
 	object-fit: cover;
 	margin-bottom: 6px;
 }
 
+.cardImage.imgNotFound {
+	object-fit: contain;
+}
+
 .cardTitle {
+	flex: 1;
 	font-size: 1.6rem;
 	font-family: 'MulishBold';
 	color: var(--MainDark);

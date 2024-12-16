@@ -1,13 +1,12 @@
 import React from 'react';
-import { cn } from '../../utils/cn';
-import './Toggle.css';
+import './styles.css';
 
-export const Toggle = ({
+const Toggle = ({
 	checked,
 	onChange,
 	disabled = false,
-	size = 'md',
-	className,
+	size = 'Md',
+	className = '',
 	label,
 }) => {
 	const handleKeyDown = event => {
@@ -28,22 +27,24 @@ export const Toggle = ({
 				disabled={disabled}
 				onClick={() => !disabled && onChange(!checked)}
 				onKeyDown={handleKeyDown}
-				className={cn(
-					'toggleBase',
-					`toggle${size}`,
-					checked && 'toggleChecked',
-					disabled && 'toggleDisabled',
-					className,
-				)}
+				className={`
+					${'toggleBase'} 
+					${`toggle${size}`} 
+					${checked && 'toggleChecked'} 
+					${disabled && 'toggleDisabled'} 
+					${className}
+				`}
 				tabIndex={disabled ? -1 : 0}
 			>
 				<span className={'toggleThumb'} />
 			</button>
 			{label && (
-				<label className={cn('selectNone', disabled && 'textGray400')}>
+				<label className={`selectNone ${disabled && 'textGray400'}`}>
 					{label}
 				</label>
 			)}
 		</div>
 	);
 };
+
+export default Toggle;

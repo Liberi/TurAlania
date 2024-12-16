@@ -1,0 +1,48 @@
+.imageModalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/* height: 100%; */
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.imageModalContent {
+	width: 95%;
+	height: 90vh;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.btnModalClose {
+	font-family: 'MulishExtraBold', sans-serif;
+	padding: 16px 20px;
+	position: absolute;
+	bottom: -30px;
+	/* right: 30; */
+	cursor: pointer;
+	z-index: 101;
+}
+
+.imageModalWrapper {
+	width: 90%;
+	height: 90vh;
+	display: flex !important;
+	justify-content: center;
+	/* align-items: center; */
+}
+
+.imageModalImage {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}

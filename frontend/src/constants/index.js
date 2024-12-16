@@ -18,6 +18,12 @@ export const PAGE_TITLES = {
 	settings: 'Настройки',
 	about: 'О нас',
 	contacts: 'Контакты',
+	gallery: 'Галерея',
 	error: 'Ошибка',
 	404: 'Страница не найдена',
+};
+
+export const IMAGE_PATHS = {
+	ORIGINAL: '/images/original',
+	SMALL: '/images/small',
 };

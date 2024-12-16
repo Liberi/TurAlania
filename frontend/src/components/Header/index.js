@@ -12,7 +12,7 @@ import './styles.css';
 
 const { settingsStore, userStore } = RootStore;
 
-const Header = ({ navigate, initTheme = 'light', className }) => {
+const Header = ({ navigate, initTheme = 'light', className = '' }) => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { theme } = settingsStore;

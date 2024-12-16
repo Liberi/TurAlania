@@ -1,0 +1,39 @@
+.scrollContainer {
+	width: 100%;
+}
+
+.scrollHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.scrollContainer {
+	overflow-x: auto;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.scrollContainer::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollContent {
+	display: flex;
+	gap: 30px;
+	padding: 0 50px;
+	/* Начальный отступ */
+}
+
+.scrollItem {
+	padding: 30px 10px;
+	flex: 0 0 auto;
+	width: 300px;
+}
+
+.safeBtnContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}

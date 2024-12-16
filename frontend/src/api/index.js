@@ -1,11 +1,14 @@
 import { RestService } from './RestService';
 import { UserRestService } from './User';
+import { ImageRestService } from './Image';
+import { getApiUrlFromPath } from '../utils';
 
 class ApiService {
-	restService = new RestService(process.env.REACT_APP_API_URL_IP + '/backend');
+	restService = new RestService(getApiUrlFromPath('backend'));
 
 	constructor() {
 		this.user = new UserRestService(this.restService);
+		this.image = new ImageRestService(this.restService);
 	}
 }
 

@@ -1,33 +1,21 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { MainButton } from '../../../../../components';
 import './styles.css';
+import { useContainerPadding } from '../../../hooks';
 
-const PopularNowBlockSkeleton = ({ className }) => {
-	const [containerPadding, setContainerPadding] = useState(0);
+const PopularNowBlockSkeleton = ({ className = '' }) => {
 	const popularNowRef = useRef(null);
-
-	useEffect(() => {
-		const resizeObserver = new ResizeObserver(entries => {
-			for (let entry of entries) {
-				setContainerPadding(entry.contentRect.height);
-			}
-		});
-
-		if (popularNowRef.current) {
-			resizeObserver.observe(popularNowRef.current);
-		}
-
-		return () => {
-			resizeObserver.disconnect();
-		};
-	}, []);
+	const containerPadding = useContainerPadding(popularNowRef);
 
 	return (
 		<div
 			className={'container skeleton ' + className}
-			style={{ paddingBottom: containerPadding + 'px' }}
+			style={{
+				paddingBottom:
+					(!containerPadding ? 200 : containerPadding) + 'px',
+			}}
 		>
 			<Skeleton className={'bigImage skeletonBigImage'} />
 			<div className={'popularNow'} ref={popularNowRef}>
@@ -68,7 +56,7 @@ const PopularNowBlockSkeleton = ({ className }) => {
 	);
 };
 
-const Separator = ({ className }) => {
+const Separator = ({ className = '' }) => {
 	return <span className={'separator ' + className}> | </span>;
 };
 

@@ -1,6 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { MainButton, Rating } from '../../../../components';
+import { useContainerPadding } from '../../hooks';
+import { getApiUrlFromPath } from '../../../../utils';
 import {
 	CalendarIcon,
 	MarkerIcon,
@@ -8,37 +11,30 @@ import {
 	ShareIcon,
 } from '../../../../assets/svg';
 import colors from '../../../../styles/colors';
-import tchey01 from '../../../../assets/img/tchey01.jpg';
 import './styles.css';
 
-const PopularNowBlock = ({ className }) => {
-	const [isLiked, setIsLiked] = useState(false);
-	const [containerPadding, setContainerPadding] = useState(0);
+
+const PopularNowBlock = ({ className = '' }) => {
 	const popularNowRef = useRef(null);
-
-	useEffect(() => {
-		const resizeObserver = new ResizeObserver(entries => {
-			for (let entry of entries) {
-				setContainerPadding(entry.contentRect.height);
-			}
-		});
-
-		if (popularNowRef.current) {
-			resizeObserver.observe(popularNowRef.current);
-		}
-
-		return () => {
-			resizeObserver.disconnect();
-		};
-	}, []);
+	const [isLiked, setIsLiked] = useState(false);
+	const containerPadding = useContainerPadding(popularNowRef);
 
 	return (
 		<div
 			className={'container ' + className}
-			style={{ paddingBottom: containerPadding + 'px' }}
+			style={{
+				paddingBottom:
+					(!containerPadding ? 200 : containerPadding) + 'px',
+			}}
 		>
 			<LazyLoadImage
-				src={tchey01}
+				src={getApiUrlFromPath(
+					'fileStorage/images/original/tchey01.jpg',
+				)}
+				/* placeholderSrc={getApiUrlFromPath(
+					'fileStorage/images/small/tchey01_Small.jpg',
+				)} */
+				// effect={'blur'}
 				alt={'«Цейский» ледник'}
 				className={'bigImage'}
 			/>
@@ -96,7 +92,7 @@ const PopularNowBlock = ({ className }) => {
 	);
 };
 
-const Separator = ({ className }) => {
+const Separator = ({ className = '' }) => {
 	return <span className={'separator ' + className}> | </span>;
 };
 

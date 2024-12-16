@@ -1,5 +1,14 @@
 import React, { Suspense } from 'react';
-import { Footer, Header, TourCard } from '../../components';
+import {
+	ScrollSlider,
+	Footer,
+	Header,
+	TourCard,
+	SectionHeading,
+	GallerySection,
+} from '../../components';
+// import TourCardSkeleton from '../../components/TourCard/skeleton';
+import GallerySectionSkeleton from '../../components/GallerySection/skeleton';
 import ReactPlayer from 'react-player';
 import { TourForm } from './components';
 import PopularNowBlockSkeleton from './components/PopularNowBlock/skeleton';
@@ -7,10 +16,8 @@ import { observer } from 'mobx-react-lite';
 import store from '../../store';
 import './styles.css';
 
-import coniferousForest from '../../assets/img/mockImg/coniferous-forest.png';
-import tseyskyGlacier from '../../assets/img/mockImg/tseysky-glacier.png';
-import tseiRepeater from '../../assets/img/mockImg/tsei-repeater.png';
-import tseyskoyeGorge from '../../assets/img/mockImg/tseyskoye-gorge.jpg';
+import { _PopularTourCards } from './mockData/_PopularTourCards';
+import { _RecommendedPlacesSliders } from './mockData/_RecommendedPlacesSliders';
 
 const PopularNowBlock = React.lazy(
 	() => import('./components/PopularNowBlock'),
@@ -28,7 +35,7 @@ const HomePage = ({ navigate }) => {
 				>
 					<ReactPlayer
 						url={'/MainVideo.mp4'}
-						playing={false}
+						playing={true}
 						loop={true}
 						muted={true}
 						width={'100%'}
@@ -69,74 +76,64 @@ const HomePage = ({ navigate }) => {
 					<PopularNowBlock />
 				</Suspense>
 				<div className={'popularTourCardsWarper'}>
-					{_mockDataPopularTourCards.map(data => (
+					{_PopularTourCards.map(item => (
 						<TourCard
-							key={data.id}
-							image={data.image}
-							title={data.title}
-							date={data.date}
-							length={data.length}
-							difficulty={data.difficulty}
-							rating={data.rating}
-							reviewCount={data.reviewCount}
-							price={data.price}
+							key={item.id}
+							image={{
+								name: item.image,
+								small: item.image.replace(
+									/(\.[^.]+)$/,
+									'_Small$1',
+								),
+							}}
+							title={item.title}
+							date={item.date}
+							length={item.length}
+							difficulty={item.difficulty}
+							rating={item.rating}
+							reviewCount={item.reviewCount}
+							price={item.price}
 						/>
 					))}
+					{/* {Array(4)
+						.fill()
+						.map((_, index) => (
+							<TourCardSkeleton key={index} />
+						))} */}
 				</div>
 			</section>
-			<Footer />
+			<ScrollSlider
+				data={_RecommendedPlacesSliders}
+				classNameHeader={'recommendedPlacesHeder'}
+				classNameSlider={'recommendedPlacesSlider'}
+			>
+				<SectionHeading
+					title={'Рекомендуемые места'}
+					description={
+						'Откройте для себя самые живописные уголки Осетии! Наши рекомендуемые места подарят вам незабываемые впечатления и позволят насладиться красотой региона.'
+					}
+					className={'mT80'}
+				/>
+			</ScrollSlider>
+			<Suspense
+				fallback={
+					<GallerySectionSkeleton className={'gallerySection mT80'} />
+				}
+			>
+				<GallerySection
+					className={'gallerySection mT80'}
+					navigate={navigate}
+				/>
+			</Suspense>
+
+			<Footer className={'homePageFooter'} />
 		</>
 	);
 };
 
 export default observer(HomePage);
 
-const _mockDataPopularTourCards = [
-	{
-		id: 1,
-		image: tseyskyGlacier,
-		title: 'Поход к подножью Цейского ледника',
-		date: '13 октября',
-		length: '4 км',
-		difficulty: 'Выше средней сложности',
-		rating: 4,
-		reviewCount: 124,
-		price: 3500,
-	},
-	{
-		id: 2,
-		image: tseiRepeater,
-		title: 'Поход в Цей через хвойный лес к ретранслятору',
-		date: '3 ноября',
-		length: '8 км',
-		difficulty: 'Средняя сложность',
-		rating: 5,
-		reviewCount: 89,
-		price: 2800,
-	},
-	{
-		id: 3,
-		image: coniferousForest,
-		title: 'Поход по хвойному лесу осеннего Цейского ущелья',
-		date: '4 ноября',
-		length: '5 км',
-		difficulty: 'Легкая сложность',
-		rating: 4.7,
-		reviewCount: 156,
-		price: 3200,
-	},
-	{
-		id: 4,
-		image: tseyskoyeGorge,
-		title: 'Цейское ущелье',
-		date: '12 декабря',
-		length: '6 км',
-		difficulty: 'Средняя сложность',
-		rating: 4.8,
-		reviewCount: 124,
-		price: 3500,
-	},
-]; /* // Функция для загрузки данных
+/* // Функция для загрузки данных
 const fetchPopularNowData = async () => {
 	const response = await fetch('/api/popular-now');
 	return response.json();

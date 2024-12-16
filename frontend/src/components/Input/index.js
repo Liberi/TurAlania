@@ -5,7 +5,7 @@ const Input = ({
 	title,
 	error,
 	enabled,
-	className,
+	className = '',
 	classNameInput,
 	...props
 }) => {

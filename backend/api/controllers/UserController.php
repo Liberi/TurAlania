@@ -63,7 +63,7 @@ class UserController extends BaseController
 			]);
 		} else {
 			http_response_code(503);
-			echo Response::error(['database' => 'Ошибка создания пользователя']);
+			echo Response::error(['error' => 'Ошибка создания пользователя']);
 		}
 	}
 

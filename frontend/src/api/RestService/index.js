@@ -11,7 +11,9 @@ export class RestService {
 			},
 			body: body ? JSON.stringify(body) : undefined,
 		});
-		console.log(`👾 > RestService > request > response:`, response);
+		if (!response.ok) {
+			console.log(`👾 > RestService > request > response:`, response);
+		}
 		const data = await response.json();
 
 		return data;
